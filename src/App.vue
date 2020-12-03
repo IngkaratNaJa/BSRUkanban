@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Kanban :data="data"/>
+    <Kanban :data="data" :create_task_submit="create_task_submit"/>
   </div>
 </template>
 
@@ -18,19 +18,36 @@ export default {
         {
           name:"todo",
           color:"#FF0066",
-          tasks:[]
+          tasks:[
+            {
+              task_name:"aaaa"
+            }
+          ]
         },
         {
-          name:"todo",
+          name:"doing",
           color:"#33FFCC",
-          tasks:[]
+          tasks:[
+            {
+              task_name:"bbbb"
+            }
+          ]
         },
         {
-          name:"todo",
+          name:"done",
           color:"#6600CC",
-          tasks:[]
+          tasks:[
+            {
+              task_name:"cccc"
+            }
+          ]
         }
       ]
+    }
+  },
+  methods:{
+    create_task_submit(column_index,item){
+      this.data[column_index].tasks.push(item)
     }
   }
 }
@@ -39,5 +56,6 @@ export default {
 <style>
 #app {
   height: 100vh;
+  color: black;
 }
 </style>
